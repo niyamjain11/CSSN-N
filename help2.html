@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Help & Support - Green Learners</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #e6f2e6;
+      color: #2a4d2a;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      font-weight: 600;
+      margin-bottom: 0.5em;
+    }
+    h1 {
+      color: #2a6b2a;
+    }
+    h2 {
+      color: #3a7d3a;
+      border-bottom: 2px solid #3a7d3a;
+      padding-bottom: 0.3em;
+      margin-top: 2em;
+    }
+    p {
+      max-width: 700px;
+    }
+    a {
+      color: #2a6b2a;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+    /* Container */
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: #f0faf0;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 30px 40px;
+    }
+    /* Welcome */
+    .welcome {
+      text-align: center;
+      margin-bottom: 2em;
+    }
+    /* FAQ */
+    .faq-section {
+      margin-top: 1em;
+    }
+    .faq-category {
+      margin-bottom: 1.5em;
+    }
+    .faq-category h3 {
+      color: #2a6b2a;
+      margin-bottom: 0.5em;
+    }
+    details {
+      background: #d9f0d9;
+      border-radius: 8px;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      box-shadow: inset 0 0 5px #a3d3a3;
+    }
+    summary {
+      font-weight: 600;
+      outline: none;
+      user-select: none;
+    }
+    details[open] {
+      background: #b7e0b7;
+      box-shadow: inset 0 0 8px #7cc47c;
+    }
+    /* Contact Support */
+    .contact-support {
+      margin-top: 2em;
+      background: #d9f0d9;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: inset 0 0 10px #a3d3a3;
+    }
+    .contact-support form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 500px;
+      margin-top: 1em;
+    }
+    label {
+      font-weight: 600;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 8px 10px;
+      border: 2px solid #7cc47c;
+      border-radius: 6px;
+      font-size: 1rem;
+      resize: vertical;
+      font-family: inherit;
+    }
+    input[type="submit"] {
+      background-color: #3a7d3a;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    input[type="submit"]:hover,
+    input[type="submit"]:focus {
+      background-color: #2a6b2a;
+    }
+    /* Contact info */
+    .contact-info {
+      margin-top: 1em;
+      font-size: 0.9rem;
+    }
+    /* Live Chat */
+    .live-chat {
+      margin-top: 2em;
+      background: #d9f0d9;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 500px;
+      box-shadow: inset 0 0 10px #a3d3a3;
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    .chatbot-avatar {
+      width: 60px;
+      height: 60px;
+      background: url('https://cdn-icons-png.flaticon.com/512/616/616408.png') no-repeat center/contain;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 2px solid #3a7d3a;
+    }
+    .chatbot-text {
+      flex-grow: 1;
+      font-style: italic;
+      color: #2a4d2a;
+    }
+    /* Useful Links */
+    .useful-links {
+      margin-top: 2em;
+      background: #d9f0d9;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 500px;
+      box-shadow: inset 0 0 10px #a3d3a3;
+    }
+    .useful-links ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .useful-links li {
+      margin-bottom: 10px;
+    }
+    /* Feedback */
+    .feedback-section {
+      margin-top: 2em;
+      background: #d9f0d9;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 500px;
+      box-shadow: inset 0 0 10px #a3d3a3;
+      text-align: center;
+    }
+    .feedback-buttons {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .feedback-buttons button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 2rem;
+      color: #3a7d3a;
+      transition: transform 0.2s ease;
+    }
+    .feedback-buttons button:hover,
+    .feedback-buttons button:focus {
+      transform: scale(1.2);
+      color: #2a6b2a;
+      outline: none;
+    }
+    textarea.suggestion-box {
+      margin-top: 15px;
+      width: 100%;
+      min-height: 70px;
+      border-radius: 8px;
+      border: 2px solid #7cc47c;
+      padding: 8px 10px;
+      font-family: inherit;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    /* Eco Tip */
+    .eco-tip {
+      margin-top: 3em;
+      background: #c6e9c6;
+      border-radius: 12px;
+      padding: 20px 30px;
+      max-width: 700px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #1f4d1f;
+      text-align: center;
+      box-shadow: 0 0 10px #8bc78b;
+      font-style: italic;
+    }
+    /* Illustrations */
+    .illustration {
+      margin-top: 3em;
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+    }
+    .illustration img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+      .live-chat,
+      .useful-links,
+      .feedback-section,
+      .contact-support {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container" role="main" aria-label="Help and Support">
+    <!-- Welcome Message -->
+    <section class="welcome" aria-labelledby="welcome-title">
+      <h1 id="welcome-title">Welcome to Green Learners Help & Support 🌿</h1>
+      <p>
+        You’re in the right place if you need help learning about the environment or using our website. We’re here to guide you through fun activities, study materials, and everything eco-friendly!
+      </p>
+    </section>
+
+    <!-- FAQs -->
+    <section class="faq-section" aria-labelledby="faq-title">
+      <h2 id="faq-title">Frequently Asked Questions (FAQs)</h2>
+
+      <!-- Using the Website -->
+      <div class="faq-category" aria-labelledby="faq-website-title">
+        <h3 id="faq-website-title">Using the Website</h3>
+        <details>
+          <summary>How do I create an account?</summary>
+          <p>Click on the "Sign Up" button at the top right corner and fill in your details. You’ll receive a confirmation email to activate your account.</p>
+        </details>
+        <details>
+          <summary>How do I navigate the site?</summary>
+          <p>Use the top menu to explore sections like "Start Learning," "Eco Fun Zone," and "Teacher & Parent Area." You can also use the search bar to find specific topics.</p>
+        </details>
+        <details>
+          <summary>What if I forget my password?</summary>
+          <p>Click on "Forgot Password" on the login page and follow the instructions to reset it via your registered email.</p>
+        </details>
+      </div>
+
+      <!-- Learning Resources -->
+      <div class="faq-category" aria-labelledby="faq-learning-title">
+        <h3 id="faq-learning-title">Learning Resources</h3>
+        <details>
+          <summary>Where can I find study materials?</summary>
+          <p>Visit the "Start Learning" page for curated lessons, videos, and downloadable worksheets on environmental topics.</p>
+        </details>
+        <details>
+          <summary>Are the materials suitable for all ages?</summary>
+          <p>Yes! We provide resources tailored for kids, young learners, and even adults interested in environmental studies.</p>
+        </details>
+      </div>
+
+      <!-- Fun Activities -->
+      <div class="faq-category" aria-labelledby="faq-activities-title">
+        <h3 id="faq-activities-title">Fun Activities</h3>
+        <details>
+          <summary>How do I access games and quizzes?</summary>
+          <p>Head over to the "Eco Fun Zone" where you’ll find interactive games, quizzes, and eco-challenges designed to make learning fun!</p>
+        </details>
+        <details>
+          <summary>Can I participate in eco-challenges?</summary>
+          <p>Absolutely! Join our monthly eco-challenges and share your progress with the community.</p>
+        </details>
+      </div>
+
+      <!-- Parental & Teacher Guides -->
+      <div class="faq-category" aria-labelledby="faq-parent-teacher-title">
+        <h3 id="faq-parent-teacher-title">Parental & Teacher Guides</h3>
+        <details>
+          <summary>Where can parents and teachers find guides?</summary>
+          <p>Visit the "Teacher & Parent Area" for lesson plans, tips, and resources to support young learners.</p>
+        </details>
+        <details>
+          <summary>How can I get involved as a teacher?</summary>
+          <p>Contact us via the form below or email to learn about partnership opportunities and resource contributions.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Contact Support -->
+    <section class="contact-support" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact Support</h2>
+      <p>If you need more help or have questions, please reach out! We’re happy to assist you.</p>
+      <form action="#" method="post" aria-label="Contact Support Form">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required placeholder="Jane Doe" />
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com" />
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" required placeholder="How can we help you?"></textarea>
+
+        <input type="submit" value="Send Message" />
+      </form>
+      <div class="contact-info" aria-live="polite">
+        <p>Email: <a href="mailto:greenifyindia01@gmail.com">greenifyindia01@gmail.com</a></p>
+        <p>Office Hours: Mon - Fri, 9:00 AM - 5:00 PM (Your Local Time)</p>
+      </div>
+    </section>
+
+    <!-- Live Chat Option -->
+    <section class="live-chat" aria-label="Live Chat Support">
+      <div class="chatbot-avatar" role="img" aria-label="Nature-themed chatbot avatar"></div>
+      <div class="chatbot-text" tabindex="0">
+        Hi! I’m EcoBot 🌱 — I can help you find activities, answer questions, or assist with assignments. Just type your question or click a suggestion below!
+        <ul>
+          <li><button type="button" aria-label="Find activities">I can help you find activities!</button></li>
+          <li><button type="button" aria-label="Help with assignment">Need help with an assignment?</button></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Useful Links -->
+    <section class="useful-links" aria-labelledby="useful-links-title">
+      <h2 id="useful-links-title">Useful Links</h2>
+      <ul>
+        <li><a href="/start-learning" title="Start Learning page">Start Learning</a></li>
+        <li><a href="/eco-fun-zone" title="Eco Fun Zone interactive content">Eco Fun Zone</a></li>
+        <li><a href="/teacher-parent-area" title="Teacher & Parent Area resources">Teacher & Parent Area</a></li>
+      </ul>
+    </section>
+
+    <!-- Feedback Section -->
+    <section class="feedback-section" aria-labelledby="feedback-title">
+      <h2 id="feedback-title">Was this page helpful?</h2>
+      <div class="feedback-buttons" role="group" aria-label="Feedback options">
+        <button type="button" aria-pressed="false" aria-label="Thumbs up">👍</button>
+        <button type="button" aria-pressed="false" aria-label="Thumbs down">👎</button>
+      </div>
+      <label for="suggestion" class="visually-hidden">Suggestion box</label>
+      <textarea id="suggestion" class="suggestion-box" placeholder="Any suggestions or comments?"></textarea>
+    </section>
+
+    <!-- Eco Tip of the Week -->
+    <section class="eco-tip" aria-live="polite" aria-atomic="true" aria-label="Eco Tip of the Week">
+      <p id="eco-tip-text">🌱 Plant a seed today and watch it grow!</p>
+    </section>
+
+    <!-- Illustration -->
+    <section class="illustration" aria-hidden="true">
+      <img src="https://cdn.pixabay.com/photo/2017/01/31/21/23/children-2022868_1280.png" alt="Illustration of kids learning and doing eco-activities" />
+    </section>
+  </main>
+
+  <script>
+    // Eco Tip rotation
+    const ecoTips = [
+      "🌱 Plant a seed today and watch it grow!",
+      "♻️ Reuse your old notebooks creatively.",
+      "🌞 Turn off lights when you leave a room to save energy.",
+      "🚶‍♂️ Walk or bike instead of using a car when possible.",
+      "💧 Save water by turning off the tap while brushing your teeth.",
+      "🌿 Start a small compost bin for your kitchen scraps.",
+      "🐝 Create a bee-friendly garden with native flowers."
+    ];
+    const ecoTipText = document.getElementById('eco-tip-text');
+    let tipIndex = 0;
+
+    setInterval(() => {
+      tipIndex = (tipIndex + 1) % ecoTips.length;
+      ecoTipText.textContent = ecoTips[tipIndex];
+    }, 15000); // change tip every 15 seconds
+
+    // Feedback buttons toggle aria-pressed
+    const feedbackButtons = document.querySelectorAll('.feedback-buttons button');
+    feedbackButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        feedbackButtons.forEach(btn => btn.setAttribute('aria-pressed', 'false'));
+        button.setAttribute('aria-pressed', 'true');
+      });
+    });
+  </script>
+</body>
+</html>
